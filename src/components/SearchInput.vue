@@ -1,6 +1,6 @@
 <template>
     <form class="search">
-        <img src="/icons/search.svg" alt="search">
+        <img src="/icons/search.svg" class="search-icon" alt="search">
         <input type="text" placeholder="find your favorite anime">
     </form>
 </template>
