@@ -13,3 +13,4 @@ export default {
   components: { Header, Animes }
 }
 </script>
+

@@ -3,5 +3,17 @@
 </template>
 
 <style>
-@import url("./assets/styles/Global.scss");
+body {
+    background: #141414;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #ddd;
+    margin: 0;
+}
 </style>
