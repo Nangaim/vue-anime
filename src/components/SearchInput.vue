@@ -1,13 +1,30 @@
 <template>
-    <form class="search">
+    <form @submit.prevent="handleSubmit" class="search">
         <!-- <img src="/icons/search.svg" class="search-icon" alt="search"> -->
-        <input type="text" class="search-input" placeholder="Find your favorite anime">
+        <input v-model="searchText" type="text" class="search-input" placeholder="Find your favorite anime" required>
     </form>
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
+import { watch } from '@vue/runtime-core'
 export default {
+    setup(props, context){
+        const searchText = ref('')
 
+        watch(searchText, () => {
+            
+        })
+        
+        const handleSubmit = () => {
+            context.emit('searchText', searchText.value)
+        }
+
+        return {
+            searchText,
+            handleSubmit
+        }
+    }
 }
 </script>
 

@@ -1,21 +1,28 @@
 <template>
   <div class="card">
-    <a href="">
+    <router-link :to="{ name: 'anime', params: {id}}">
       <div class="cover-container">
         <img :src="image" alt="" class="cover">
       </div>
       <h4>{{title}}</h4>
-      <p>{{year.slice(0, 4)}} - 48 épisodes</p>
-    </a>
+      <p>{{type}} - {{status}}</p>
+      <p><strong>{{ score ? score : 'N/A' }}</strong>/10 - Popularity <strong>#{{ popularity ? popularity : 'N/A'
+      }}</strong>
+      </p>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
   props: {
+    id: Number,
     title: String,
     image: String,
-    year: Number,
+    type: String,
+    status: String,
+    score: Number,
+    popularity: Number
   }, 
   setup() {
     
@@ -27,6 +34,8 @@ export default {
 </script>
 
 <style lang="scss">
+
+
 .card{
   width: 250px;
   background-color: #333;
@@ -70,6 +79,13 @@ export default {
     transform: scale(1.03);
   }
     
+}
+
+.Green{
+  color: #1D9829;
+}
+.red{
+  color: #972425;
 }
 
 
