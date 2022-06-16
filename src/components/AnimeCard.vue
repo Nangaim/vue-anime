@@ -83,7 +83,7 @@ export default {
   }
 
   transition: 0.3s ease;
-
+  
   &:hover{
     transform: scale(1.03);
   }
