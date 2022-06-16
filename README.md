@@ -1,19 +1,16 @@
-# vue-world
+![vue-anime](./readme-banner.png)
 
-## Project setup
-```
-npm install
-```
+<div align="center">
+  <h3><a target="_blank" href="https://fastory.bdph.me">Vue Anime</a> · Thierry Maignan</h3>
+  <img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D">
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+</div>
 
-### Compiles and minifies for production
-```
-npm run build
-```
+<hr>
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Fonctionnalités
+
+- Recherche d'un anime
+- Page dédiée pour chaque résultat
+- Router avec vue router
+- Utilisation de l'api [Jikan](https://docs.api.jikan.moe/)

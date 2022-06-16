@@ -1,7 +1,7 @@
 <template>
     <header>
         <router-link :to="{name: 'home'}">
-            <h1>Find your favorite anime!</h1>
+            <h1>Find your favorite anime !</h1>
         </router-link>
     </header>
 </template>
