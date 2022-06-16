@@ -1,13 +1,13 @@
 <template>
     <header>
-        <router-link :to="{name: 'home',}">
-
+        <router-link :to="{name: 'home'}">
             <h1>Find your favorite anime!</h1>
         </router-link>
     </header>
 </template>
 
 <style lang="scss" scoped>
+
 header {
     height: 70px;
     display: flex;
@@ -23,7 +23,6 @@ header {
             font-size: 2rem;
         }
     }
-    
 }
 
 @media (max-width: 560px){
@@ -46,8 +45,5 @@ header {
             }
         }
     }
-
 }
-
-
 </style>

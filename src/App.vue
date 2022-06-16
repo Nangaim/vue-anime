@@ -19,8 +19,6 @@ export default {
 }
 </script>
 <style>
-
-
 body {
     background: #141414;
     margin: 0;
@@ -39,7 +37,6 @@ body {
 .fade-leave-active {
   transition: opacity 0.3s ease;
 }
-
 
 .fade-enter-from,
 .fade-leave-to {

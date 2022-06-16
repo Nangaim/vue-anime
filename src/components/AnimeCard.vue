@@ -27,7 +27,7 @@ export default {
   }, 
   setup({status}) {
     const isAiring = ref("")
-    
+
     switch (status){
       case "Currently Airing":
         isAiring.value = "#115B19"
@@ -43,16 +43,11 @@ export default {
     return{
       isAiring
     }
-    
   }
-
 }
-// const {anime} = defineProps(['anime'])
-// console.log(anime.title)
 </script>
 
 <style lang="scss">
-
 
 .card{
   width: 250px;
@@ -92,20 +87,10 @@ export default {
   }
 
   transition: 0.3s ease;
-
+  
   &:hover{
     transform: scale(1.03);
   }
     
 }
-
-.Green{
-  color: #1D9829;
-}
-.red{
-  color: #972425;
-}
-
-
-
 </style>

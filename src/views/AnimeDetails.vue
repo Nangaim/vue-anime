@@ -28,9 +28,6 @@
                     <h3>Synopsis</h3>
                     <p>{{anime.synopsis}}</p>
                 </div>
-                <div class="trailer">
-
-                </div>
             </div>
         </div>
     </div>
@@ -45,7 +42,6 @@ export default {
         id: String,
     },
     setup({id}){
-
         const anime = ref(null)
         const error = ref(null)
         const router = useRouter()
@@ -59,9 +55,9 @@ export default {
                 error.value = err.message
             }
         }
-        getAnime()
-        console.log(anime)
 
+        getAnime()
+        
         const handleGoBack = () => {
             router.go(-1)
         }
@@ -132,7 +128,6 @@ export default {
         }
     }
 }
-
 
 @media (max-width: 1280px){
     .anime{
