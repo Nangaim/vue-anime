@@ -13,7 +13,7 @@ import axios from "axios"
 import { ref } from "@vue/reactivity"
 import SearchInput from "./SearchInput.vue"
 import AnimeCard from "./AnimeCard.vue"
-import { watch, watchEffect } from '@vue/runtime-core'
+import { watch } from '@vue/runtime-core'
 
 export default {
     name: 'Animes',
@@ -23,26 +23,15 @@ export default {
         const error = ref(null)
         const searchText = ref('')
 
-
         watch(searchText,() => {
             try{
-                console.log('salut')
-                console.log(searchText.value)
                 axios.get(`https://api.jikan.moe/v4/anime?q=${searchText.value}"`).then((res) =>  animes.value = res.data.data)
-                console.log(animes.value)
-                
             }
             catch (err) {
                 error.value = err.message
             }
         })
-        // const getAnimes = async () => {
-        // }
-        
 
-       
-    
-        
         return {
             animes,
             searchText
@@ -76,5 +65,4 @@ export default {
         }
     }
 }
-
 </style>

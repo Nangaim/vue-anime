@@ -7,14 +7,10 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-import { watch } from '@vue/runtime-core'
-export default {
-    setup(props, context){
-        const searchText = ref('')
 
-        watch(searchText, () => {
-            
-        })
+export default {
+    setup(context){
+        const searchText = ref('')
         
         const handleSubmit = () => {
             context.emit('searchText', searchText.value)
