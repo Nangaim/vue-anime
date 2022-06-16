@@ -1,6 +1,12 @@
 <template>
-  <Header/>
-  <router-view/>
+  <Header />
+  <router-view v-slot="{ Component, route }">
+    <transition name="fade" mode="out-in">
+      <div :key="route.name">
+        <component :is="Component"></component>
+      </div>
+    </transition>
+  </router-view>
 </template>
 
 
@@ -13,6 +19,8 @@ export default {
 }
 </script>
 <style>
+
+
 body {
     background: #141414;
     margin: 0;
@@ -25,5 +33,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: #ddd;
     margin: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

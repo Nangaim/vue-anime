@@ -6,9 +6,6 @@
             :popularity="anime.popularity" />
         <h2 v-if="animes.length === 0">Type the name of an anime</h2>
     </div>
-    <!-- <p v-for="anime in animes" :key="anime.mal_id">
-        {{ anime.title}}
-    </p> -->
 </template>
 
 <script>
@@ -54,14 +51,30 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+
 .animes-cards{
-    padding: 0 5em 3em 5em;
+    padding: 0 2.5em 1.5em 2.5em;
     display: flex;
     justify-content: center;
     grid-gap: 50px;
     flex-wrap: wrap;
     align-items: baseline;
+}
+
+@media (max-width: 1024px) {
+    .country-cards {
+        padding: 0 2em 3em 2em;
+    }
+}
+
+@media (max-width: 400px){
+    .animes-cards{
+        h2 {
+            font-size: 1.1rem;
+        }
+    }
 }
 
 </style>

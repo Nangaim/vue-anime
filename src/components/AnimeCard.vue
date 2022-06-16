@@ -5,7 +5,7 @@
         <img :src="image" alt="" class="cover">
       </div>
       <h4>{{title}}</h4>
-      <p>{{type}} - {{status}}</p>
+      <p>{{type}} - <strong :style="{ 'color': isAiring}">{{status}}</strong></p>
       <p><strong>{{ score ? score : 'N/A' }}</strong>/10 - Popularity <strong>#{{ popularity ? popularity : 'N/A'
       }}</strong>
       </p>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
 export default {
   props: {
     id: Number,
@@ -24,7 +25,24 @@ export default {
     score: Number,
     popularity: Number
   }, 
-  setup() {
+  setup({status}) {
+    const isAiring = ref("")
+    
+    switch (status){
+      case "Currently Airing":
+        isAiring.value = "#115B19"
+        break
+      case "Finished Airing":
+        isAiring.value = "#972425"
+        break
+      default:
+        isAiring.value = "#ddd"
+        break
+    }
+
+    return{
+      isAiring
+    }
     
   }
 

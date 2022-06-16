@@ -30,6 +30,7 @@ export default {
 
 <style lang="scss">
 
+
 .search{
     width: 100%;
     display: flex;
@@ -54,6 +55,13 @@ export default {
         }
     }
 
+}
+@media (max-width: 560px) {
+    .search{
+        .search-input{
+            width: 80%;
+        }
+    }
 }
 
 

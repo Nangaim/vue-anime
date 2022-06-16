@@ -1,38 +1,45 @@
 <template>
     <div v-if="anime" class="anime">
-        <button>Go back</button>
-      <div class="anime-details">
-        <div v-if="anime.trailer.embed_url" class="picture">
-            <iframe width="100%" height="100%" :src="anime.trailer.embed_url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="buttons">
+            <button @click="handleGoBack">Go back</button>
+            <a :href="anime.url">More infos</a>
         </div>
-        <div class="anime-info">
-            <h2>{{anime.title}}</h2>
-            <ul>
-                <li class="score"><img src="/icons/gold-star.svg" alt=""> <strong>{{anime.score}}</strong></li>
-                <li>{{anime.type}}</li>
-                <li>Aired : <strong>{{anime.aired.string}}</strong></li>
+        <div class="anime-details">
+            <div v-if="anime.trailer.embed_url" class="picture">
+                <iframe width="100%" height="100%" :src="anime.trailer.embed_url" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="anime-info">
+                <h2>{{anime.title}}</h2>
                 <ul>
-                    <li v-for="studio in anime.studios" :key="studio">
-                        Studio {{studio.name}}
-                    </li>
+                    <li class="score"><img src="/icons/gold-star.svg" alt=""> <strong>{{anime.score}}</strong></li>
+                    <li>{{anime.type}}</li>
+                    <li>Aired : <strong>{{anime.aired.string}}</strong></li>
+                    <ul>
+                        <li v-for="studio in anime.studios" :key="studio">
+                            Studio {{studio.name}}
+                        </li>
+                    </ul>
                 </ul>
-            </ul>
-    
-            <div class="synopsis">
-                <h3>Synopsis</h3>
-                <p>{{anime.synopsis}}</p>
-            </div>
-            <div class="trailer">
-                
+
+                <div class="synopsis">
+                    <h3>Synopsis</h3>
+                    <p>{{anime.synopsis}}</p>
+                </div>
+                <div class="trailer">
+
+                </div>
             </div>
         </div>
-      </div>
     </div>
 </template>
 
 <script>
 import axios from "axios"
 import { ref } from '@vue/reactivity'
+import { useRouter } from 'vue-router'
 export default {
     props: {
         id: String,
@@ -41,10 +48,10 @@ export default {
 
         const anime = ref(null)
         const error = ref(null)
+        const router = useRouter()
 
-        const getCountry = () => {
+        const  getAnime = () => {
             try{
-
                 axios.get(`https://api.jikan.moe/v4/anime/${id}`)
                 .then((res) =>  anime.value = res.data.data)
             }
@@ -52,12 +59,17 @@ export default {
                 error.value = err.message
             }
         }
-        getCountry()
+        getAnime()
         console.log(anime)
+
+        const handleGoBack = () => {
+            router.go(-1)
+        }
 
         return{
             id: parseInt(id),
-            anime
+            anime,
+            handleGoBack
         }
 
     }
@@ -65,21 +77,28 @@ export default {
 </script>
 
 <style lang="scss">
+
 .anime{
     padding: 4em;
-    button{
-        background: #333;
-        padding: 0.5em 1.7em;
-        border-radius: 0.4em;
-        cursor: pointer;
-        color: #ddd;
-        font-size: 1rem;
-        margin-bottom: 40px;
-        border: none;
-        transition: 0.3s ease;
-        &:hover{
-            background: #ddd;
-            color: #333;
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        button, a {
+            background: #333;
+            padding: 0.5em 1.7em;
+            border-radius: 0.4em;
+            cursor: pointer;
+            color: #ddd;
+            font-size: 1rem;
+            margin-bottom: 40px;
+            text-decoration: none;
+            border: none;
+            transition: 0.3s ease;
+    
+            &:hover {
+                background: #ddd;
+                color: #333;
+            }
         }
     }
     
