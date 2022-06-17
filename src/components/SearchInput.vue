@@ -9,7 +9,7 @@
 import { ref } from '@vue/reactivity'
 
 export default {
-    setup(context){
+    setup(_,context){
         const searchText = ref('')
         
         const handleSubmit = () => {

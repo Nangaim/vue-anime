@@ -14,3 +14,7 @@
 - Page dédiée pour chaque résultat
 - Router avec vue router
 - Utilisation de l'api [Jikan](https://docs.api.jikan.moe/)
+
+## Description
+
+Site permettant de rechercher un anime parmi l'api Jikan et de découvrir les informations à propos de celui-ci avec un lien vers anime pour plus d'information.
