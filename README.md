@@ -1,7 +1,7 @@
 ![vue-anime](./readme-banner.png)
 
 <div align="center">
-  <h3><a target="_blank" href="https://fastory.bdph.me">Vue Anime</a> · Thierry Maignan</h3>
+  <h3><a target="_blank" href="https://vue-anime.netlify.app/">Vue Anime</a> · Thierry Maignan</h3>
   <img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D">
 
 </div>
